@@ -1,3 +1,8 @@
+// Copyright (c) 2011, XMOS Ltd., All rights reserved
+// This software is freely distributable under a derivative of the
+// University of Illinois/NCSA Open Source License posted in
+// LICENSE.txt and at <http://github.xcore.com/>
+
 #include <xs1.h>
 #include <platform.h>
 #include <print.h>
@@ -9,9 +14,18 @@
 on stdcore[0] : fram_interface_t fram_ports = { PORT_SPI_MISO, PORT_SPI_SS, PORT_SPI_CLK, PORT_SPI_MOSI, XS1_CLKBLK_1 };
 
 
-// Defines for flash size (256 x 4096 = 1048576 bytes)
-#define PAGE_SIZE 256
-#define NUM_PAGES 4096
+#ifdef FM25V10
+	// Defines for flash size (256 x 4096 = 1048576 bytes)
+	#define PAGE_SIZE 256
+	#define NUM_PAGES 4096
+#endif
+
+
+#ifdef FM25H20
+	// Defines for flash size (256 x 8192 = 2097152 bytes)
+	#define PAGE_SIZE 256
+	#define NUM_PAGES 8192
+#endif
 
 
 // Prototypes for functions
@@ -30,18 +44,21 @@ void test_fram( void )
 	// Initialise the F-RAM
 	fram_initialise( fram_ports );
 
-	// Get the F-RAM ID
-	fram_read_id( fram_ports, temp );
+	// Get the ID if it's supported
+	#ifdef FM25V10
+		// Get the F-RAM ID
+		fram_read_id( fram_ports, temp );
 
-	// Print the last 3 bytes
-	printstr( "F-RAM ID: 0x" );
-	printhex((unsigned int) (temp[6] >> 4));
-	printhex((unsigned int) (temp[6] & 0xF));
-	printhex((unsigned int) (temp[7] >> 4));
-	printhex((unsigned int) (temp[7] & 0xF));
-	printhex((unsigned int) (temp[8] >> 4));
-	printhex((unsigned int) (temp[8] & 0xF));
-	printchar('\n');
+		// Print the last 3 bytes
+		printstr( "F-RAM ID: 0x" );
+		printhex((unsigned int) (temp[6] >> 4));
+		printhex((unsigned int) (temp[6] & 0xF));
+		printhex((unsigned int) (temp[7] >> 4));
+		printhex((unsigned int) (temp[7] & 0xF));
+		printhex((unsigned int) (temp[8] >> 4));
+		printhex((unsigned int) (temp[8] & 0xF));
+		printchar('\n');
+	#endif
 
 	// Write and check 0x00
 	write_all_fram( 0x00 );
