@@ -12,9 +12,11 @@ Key Features
 ============
 
    * Example project that shows how to interface to a RAMTRON FM25V10 (1Mbit) or FM25H20 (2Mbit) SPI F-RAM Memory. These have the advantages of:
+   
       * Low power than FLASH.
       * Faster write performance (there are no write delays).
       * Much larger umber of write cycles (at least 100 trillion).
+      
    * Uses a light weight SPI interface.
    * Provides a low level interface, so the client manages the data directly on the F-RAM.
 
@@ -25,6 +27,7 @@ You can read and write to it using xflash/flashlib and a suitalbe SPI-spec file,
 The XCore can boot from it as if it was a normal FLASH.
 
 The example project shows how to (by commenting in/out the appropriate options in main()):
+
    * test the memory by writing data (0x00, 0x55, 0xFF) and verifying the contents of the F-RAM.
    * read the contents of the F-RAM and printing it to the terminal.
    * write a binary file to the F-RAM (e.g. the XK-1 FLASH firmware in example/xk-1.bin).
