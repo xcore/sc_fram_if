@@ -3,9 +3,9 @@ XCORE.com xkcam software and related schematics and documentation
 
 :Stable release:   unreleased
 
-:Status:  Feature complete
+:Status:  Feature initial prototype
 
-:Maintainer:  Corin (github: xmos-corin)
+:Maintainer:  Gibson (github: davidgibson)
 
 
 Key Features
