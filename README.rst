@@ -1,4 +1,4 @@
-XCORE.com FRAM SOFTWARE COMPONENT
+XCORE.com xkcam software and related schematics and documentation
 .................................
 
 :Stable release:   unreleased
