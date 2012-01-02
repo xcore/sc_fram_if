@@ -1,0 +1,1 @@
+Schematics for hardware and datasheet for KAC-401 image sensor.
