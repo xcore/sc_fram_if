@@ -1,0 +1,14 @@
+Frame info:
+Horizontal and vertical subsampling is on
+Grab window is (x1, y1 -> x2, y2) 64, 4 to 191, 83
+Display window is rows 4 to 83
+Number of pixels = 2560
+Frame/ROI rate = 1540fps
+
+About to enter 64x40 grab loop
+Mean sub-image differences:
+Grabbed and processed 80 frames at 24fps
+Grabbed and processed 2400 ROIs at 738ROIps
+Done ImProc, time taken = 324948877
+Done Grab64x40BlocksSUB
+Done...
