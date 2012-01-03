@@ -14,11 +14,13 @@ Key Features
 
 * Schematics and port map for XMOS + Kodak KAC-401 dev board
 * Kodak KAC-401 driver interface via I2C
-* 
+* Two examples of sensor control and image capture
+* Basic piece-wise image processing
 
 Firmware Overview
 =================
 
+* 
 
 Known Issues
 ============
