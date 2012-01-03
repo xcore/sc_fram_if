@@ -20,7 +20,9 @@ Key Features
 Firmware Overview
 =================
 
-* 
+* A driver interface for the KAC-401 image sensor
+* Access to most of the sensor registers (with a debug capability)
+* Sensor pin to XMOS port mappings
 
 Known Issues
 ============
