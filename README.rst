@@ -18,6 +18,9 @@ Key Features
 * Two examples of sensor control and image capture:
   - GrabFrame128x128HVSub
   - Grab64x40BlocksSUB
+* 8.24 signed fixed point:
+
+  - basic functions: mul, div, sqrt
 * Basic piece-wise image processing
 
 Firmware Overview
