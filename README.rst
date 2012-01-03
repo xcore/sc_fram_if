@@ -9,12 +9,15 @@ XCORE.com xkcam software, schematics and documentation
 
 :Maintainer: https://github.com/davidgibson
 
+
 Key Features
 ============
 
 * Schematics and port map for XMOS + Kodak KAC-401 dev board
 * Kodak KAC-401 driver interface via I2C
 * Two examples of sensor control and image capture
+  - GrabFrame128x128HVSub
+  - Grab64x40BlocksSUB
 * Basic piece-wise image processing
 
 Firmware Overview
