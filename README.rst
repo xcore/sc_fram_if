@@ -9,20 +9,12 @@ XCORE.com xkcam software, schematics and documentation
 
 :Maintainer: https://github.com/davidgibson
 
-
-This is a library of functions that implement standard mathematical
-functions in fixed point. One group of functions use a "8.24" fixed point format
-with 24 bits behind the binary point, and 8 bits before the binary point.
-Numbers are represented in 2's complement. Another group works on unsigned integers
-
-More details to follow in the doc directory.
-
-
 Key Features
 ============
 
-* Kodak KAC-401 driver interface
-*
+* Schematics and port map for XMOS + Kodak KAC-401 dev board
+* Kodak KAC-401 driver interface via I2C
+* 
 
 Firmware Overview
 =================
