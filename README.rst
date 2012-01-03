@@ -17,7 +17,7 @@ Key Features
 * Kodak KAC-401 driver interface via I2C
 * Two examples of sensor control and image capture:
 
-  - GrabFrame128x128HVSub grabs a single 128x128, sensor centered image with horizontal
+  - GrabFrame128x128HVSub grabs a single 128x128 sensor centered image with horizontal
     and vertical 2x2 sub-sampling (pixel binning)
   - Grab64x40BlocksSUB grabs a grid of 64x40 pixels regions of interest (ROIs) with
     sub-sampling that covers 640x480 pixels of the sensor surface.
