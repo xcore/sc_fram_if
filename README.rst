@@ -1,48 +1,47 @@
-XCORE.com FRAM SOFTWARE COMPONENT
+XCORE.com xkcam software, schematics and documentation
 .................................
 
-:Stable release:   unreleased
+:Description: XMOS + Kodak image sensor decription with sensor driver, sensor control and basic image processing.
 
-:Status:  Feature complete
+:Status: Initial prototype.
 
-:Maintainer:  Corin (github: xmos-corin)
+:Version: Unreleased.
+
+:Maintainer: https://github.com/davidgibson
 
 
 Key Features
 ============
 
-   * Example project that shows how to interface to a RAMTRON FM25V10 (1Mbit) or FM25H20 (2Mbit) SPI F-RAM Memory. These have the advantages of:
-   
-      * Low power than FLASH.
-      * Faster write performance (there are no write delays).
-      * Much larger umber of write cycles (at least 100 trillion).
-      
-   * Uses a light weight SPI interface.
-   * Provides a low level interface, so the client manages the data directly on the F-RAM.
+* Schematics and port map for XMOS + Kodak KAC-401 dev board
+* Kodak KAC-401 driver interface via I2C
+* Two examples of sensor control and image capture:
+
+  - GrabFrame128x128HVSub grabs a single 128x128 sensor centered image with horizontal
+    and vertical 2x2 sub-sampling (pixel binning)
+  - Grab64x40BlocksSUB grabs a grid of 64x40 pixels regions of interest (ROIs), with
+    sub-sampling, that covers 640x480 pixels of the sensor surface.
+
+* Basic piece-wise image processing
 
 Firmware Overview
 =================
 
-You can read and write to it using xflash/flashlib and a suitalbe SPI-spec file, but this is a lightweight interface for fast access to it.
-The XCore can boot from it as if it was a normal FLASH.
-
-The example project shows how to (by commenting in/out the appropriate options in main()):
-
-   * test the memory by writing data (0x00, 0x55, 0xFF) and verifying the contents of the F-RAM.
-   * read the contents of the F-RAM and printing it to the terminal.
-   * write a binary file to the F-RAM (e.g. the XK-1 FLASH firmware in example/xk-1.bin).
+* A driver interface for the KAC-401 image sensor
+* Access to most of the sensor registers (with a debug capability)
+* Sensor pin to XMOS port mappings
 
 Known Issues
 ============
 
-None, although the interface to the F-RAM could be sped up, by using clock blocks and buffered ports.
+None
 
-Required Modules
-=================
+Required Repositories
+=====================
 
-None.
+None
 
 Support
 =======
 
-Issues may be submitted via the Issues tab in this github repo. Response to any issues submitted as at the discretion of the manitainer for this line.
+Issues may be submitted via the Issues tab in this github repo. Response to any issues submitted as at the discretion of the maintainer for this line.
