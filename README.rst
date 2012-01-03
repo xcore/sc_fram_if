@@ -1,48 +1,78 @@
-XCORE.com xkcam software and related schematics and documentation
+XCORE.com xkcam software, schematics and documentation
 .................................
 
-:Stable release:   unreleased
+:Description: XMOS + Kodak image sensor decription with sensor driver, sensor control and basic image processing.
 
-:Status:  Feature initial prototype
+:Status: Initial prototype.
 
-:Maintainer:  Gibson (github: davidgibson)
+:Version: Unreleased.
+
+:Maintainer: https://github.com/davidgibson
+
+
+This is a library of functions that implement standard mathematical
+functions in fixed point. One group of functions use a "8.24" fixed point format
+with 24 bits behind the binary point, and 8 bits before the binary point.
+Numbers are represented in 2's complement. Another group works on unsigned integers
+
+More details to follow in the doc directory.
 
 
 Key Features
 ============
 
-   * Example project that shows how to interface to a RAMTRON FM25V10 (1Mbit) or FM25H20 (2Mbit) SPI F-RAM Memory. These have the advantages of:
-   
-      * Low power than FLASH.
-      * Faster write performance (there are no write delays).
-      * Much larger umber of write cycles (at least 100 trillion).
-      
-   * Uses a light weight SPI interface.
-   * Provides a low level interface, so the client manages the data directly on the F-RAM.
+* 8.24 signed fixed point:
+
+  - basic functions: mul, div, sqrt
+  - emulation of manipulation of exponent and mantissa: ldexp, frexp
+  - trigonometric functions: sin, cos
+  - exponential functions: exp, log, sinh, cosh
+  - test harness that checks on precision against double precision C.
+
+* 32.0 unsigned fiex point:
+
+  - sqrt
+
+To Do
+=====
+
+* Get size and speed into test harness.
+* Make 64 bit version, probably 16.48 (blocked by lack of long long in XC)
+* Run minimiser over errors in order to improve coefficients for our domain.
+* Add other mathematical functions (atan2, errf etc)
+* Add optional check on overflows (with a compile time flag for code that has size constraints)
+* Add optional check on domain errors, eg. sqrt(-1)
 
 Firmware Overview
 =================
 
-You can read and write to it using xflash/flashlib and a suitalbe SPI-spec file, but this is a lightweight interface for fast access to it.
-The XCore can boot from it as if it was a normal FLASH.
+8.24
+----
 
-The example project shows how to (by commenting in/out the appropriate options in main()):
+A collection of functions, all stored in a single module. The function
+names are suffixed with ``f8_24`` to denote that these are single precision
+fixed point functions. There are some obvious dependencies, mostly on ldexp
+and frexp.
 
-   * test the memory by writing data (0x00, 0x55, 0xFF) and verifying the contents of the F-RAM.
-   * read the contents of the F-RAM and printing it to the terminal.
-   * write a binary file to the F-RAM (e.g. the XK-1 FLASH firmware in example/xk-1.bin).
+Two extra functions, mulf8_24 and divf8_24 perform multiplication and division on
+fixed point numbers.
+
+32.0
+----
+
+A single function to compute sqrt
 
 Known Issues
 ============
 
-None, although the interface to the F-RAM could be sped up, by using clock blocks and buffered ports.
+none
 
-Required Modules
-=================
+Required Repositories
+=====================
 
-None.
+* xcommon git\@github.com:xmos/xcommon.git
 
 Support
 =======
 
-Issues may be submitted via the Issues tab in this github repo. Response to any issues submitted as at the discretion of the manitainer for this line.
+Issues may be submitted via the Issues tab in this github repo. Response to any issues submitted as at the discretion of the maintainer for this line.
